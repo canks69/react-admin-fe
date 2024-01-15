@@ -1,14 +1,87 @@
 import {RouteObject} from "react-router-dom";
+import {DashboardPage} from "../pages/dashboard/DashboardPage.tsx";
+import {DashboardLayout} from "../layouts/DashboardLayout.tsx";
+import {JSX} from "react";
+import {FullLayout} from "../layouts/FullLayout.tsx";
 
-export const AdminRoutes:RouteObject[] = [
+export interface adminMenuProps {
+  label?: string;
+  path: string;
+  icon?: string;
+  element?: JSX.Element;
+  items?: adminMenuProps[];
+}
+
+export const adminMenu = [
   {
     path: "/admin",
-    element: <h1>Admin Layout</h1>,
-    children: [
-      {path: "", element: <h1>Home Page</h1>},
-      {path: "dashboard", element: <h1>Dashboard Page</h1>},
-      {path: "users", element: <h1>Users Page</h1>},
-      {path: "settings", element: <h1>Settings Page</h1>}
+    element: <DashboardLayout/>,
+    items: [
+      {
+        label: 'Dashboard',
+        path: 'dashboard',
+        element: <DashboardPage />,
+        icon: 'solar:home-linear',
+      },
+      {
+        label: 'Users',
+        path: 'users',
+        element: <h1 className='flex justify-center items-center'>Users</h1>,
+        icon: 'basil:user-outline',
+      },
+      {
+        label: 'Settings',
+        path: 'settings',
+        icon: 'bx:bxs-cog',
+        element: <FullLayout />,
+        items: [
+          {
+            label: 'Profile',
+            element: <h1>Profile</h1>,
+            path: 'profile'
+          },
+          {
+            label: 'Security',
+            element: <h1>Security</h1>,
+            path: 'security'
+          },
+          {
+            label: 'About',
+            element: <FullLayout />,
+            path: 'about',
+            items: [
+              {
+                label: 'Company',
+                element: <h1>Company</h1>,
+                path: 'company'
+              },
+              {
+                label: 'Team',
+                element: <h1>Team</h1>,
+                path: 'team'
+              },
+              {
+                label: 'Contact',
+                element: <h1>Contact</h1>,
+                path: 'contact'
+              }
+            ]
+          }
+        ]
+      },
     ]
   }
 ];
+
+const genarateRoutes = (adminMenu: adminMenuProps[]) => {
+  const routes: RouteObject[] = [];
+  adminMenu.forEach((item) => {
+    routes.push({
+      path: item.path,
+      element: item.element,
+      children: item.items ? genarateRoutes(item.items) : []
+    });
+  });
+  return routes;
+}
+export const AdminRoutes:RouteObject[] = genarateRoutes(adminMenu);

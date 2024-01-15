@@ -1,3 +1,40 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer base {
+    :root {
+        --color-primary: 248 249 250;
+        --color-hover: 82 141 239;
+        --color-text: 51 51 51;
+        --color-accent: 66 133 244;
+        --color-secondary: 240 244 248;
+    }
+}
+
+html[data-themes="light"] {
+    --color-primary: 248 249 250;
+    --color-text: 51 51 51;
+    --color-accent: 66 133 244;
+    --color-secondary: 240 244 248;
+}
+
+html[data-themes="light-dark"] {
+    --color-primary: 18 24 45;
+    --color-text: 226 240 251;
+    --color-accent: 2 40 84;
+    --color-secondary: 51 51 51;
+}
+
+html[data-themes="blue"] {
+    --color-primary: 226 240 251;
+    --color-text: 248 249 250;
+    --color-accent: 0 123 255;
+    --color-secondary: 204 234 255;
+}
+
+html[data-themes="blue-dark"] {
+    --color-primary: 52 73 94;
+    --color-text: 255 255 255;
+    --color-accent: 58 128 242;
+    --color-secondary: 83 97 118;
+}
