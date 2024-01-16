@@ -38,3 +38,16 @@ html[data-themes="blue-dark"] {
     --color-accent: 58 128 242;
     --color-secondary: 83 97 118;
 }
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(var(--color-secondary)); /* Change the color as needed */
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background-color:  rgb(var(--color-primary)); /* Change the color as needed */
+}

@@ -1,4 +1,4 @@
-import {RouteObject} from "react-router-dom";
+import {Navigate, RouteObject} from "react-router-dom";
 import {DashboardPage} from "../pages/dashboard/DashboardPage.tsx";
 import {DashboardLayout} from "../layouts/DashboardLayout.tsx";
 import {JSX} from "react";
@@ -17,6 +17,10 @@ export const adminMenu = [
     path: "/admin",
     element: <DashboardLayout/>,
     items: [
+      {
+        path: '',
+        element: <Navigate to='/admin/dashboard' replace={true} />,
+      },
       {
         label: 'Dashboard',
         path: 'dashboard',
