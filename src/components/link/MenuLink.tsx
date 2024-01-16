@@ -34,9 +34,11 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ item, activeMenu, parentPath 
         <a
           href={undefined}
           onClick={handleDropdownToggle}
-          className={`flex items-center gap-4 text-sm text-white font-medium px-4 py-2 rounded-lg ${isActive ? 'bg-accent text-primary' : ''} hover:bg-accent hover:text-secondary`}
+          className={`flex items-center gap-4 text-sm text-white font-medium px-4 py-2 rounded-lg ${isActive ? 'bg-white/10 shadow-lg shadow-light/10' : ''} hover:bg-white/10`}
         >
-          <Icon icon={item.icon || 'mdi:circle-outline'} className="text-white text-lg" />
+          {item.icon && (
+            <Icon icon={item.icon} className="text-white text-lg" />
+          )}
           {item.label}
           
           <Icon
@@ -49,9 +51,11 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ item, activeMenu, parentPath 
             <Link
               to={`${mainRoute}${fullPath}`}
               onClick={() => setDropdownOpen(false)} // Close dropdown when clicking on a link
-              className={`flex items-center gap-4 text-sm text-white font-medium px-4 py-2 rounded-lg ${isActive ? 'bg-accent text-primary' : ''} hover:bg-accent hover:text-secondary`}
+              className={`flex items-center gap-4 text-sm text-white font-medium px-4 py-2 rounded-lg ${isActive ? 'bg-white/10 shadow-lg shadow-light/10' : ''} hover:bg-white/10`}
             >
-              <Icon icon={item.icon || 'mdi:circle-outline'} className="text-white text-lg" />
+              {item.icon && (
+                <Icon icon={item.icon} className="text-white text-lg" />
+              )}
               {item.label}
             </Link>
         )

@@ -1,53 +1,90 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html[data-color="blue"][data-themes="light"] {
+    --primary: 35 179 244;
+    --primary-light: 58 174 216;
+    --background: 249 249 249;
+    --text-menu: 255 255 255;
+    --card-background: 255 255 255;
+    --text-light: 29 29 29;
+}
+
+html[data-color="blue"][data-themes="dark"]{
+    --primary: 35 179 244;
+    --primary-light: 58 174 216;
+    --background: 18 18 18;
+    --text-menu: 255 255 255;
+    --card-background: 29 29 29;
+    --text-light: 255 255 255;
+}
+
+html[data-color="red"][data-themes="light"] {
+    --primary: 235 88 88;
+    --primary-light: 243 94 94;
+    --background: 249 249 249;
+    --text-menu: 255 255 255;
+    --card-background: 255 255 255;
+    --text-light: 29 29 29;
+}
+
+html[data-color="red"][data-themes="dark"] {
+    --primary: 235 88 88;
+    --primary-light: 243 94 94;
+    --background: 18 18 18;
+    --text-menu: 255 255 255;
+    --card-background: 29 29 29;
+    --text-light: 255 255 255;
+}
+
+html[data-color="green"][data-themes="light"] {
+    --primary: 28 163 94;
+    --primary-light: 13 181 95;
+    --background: 249 249 249;
+    --text-menu: 255 255 255;
+    --card-background: 255 255 255;
+    --text-light: 29 29 29;
+}
+
+html[data-color="green"][data-themes="dark"] {
+    --primary: 28 163 94;
+    --primary-light: 13 181 95;
+    --background: 18 18 18;
+    --text-menu: 255 255 255;
+    --card-background: 29 29 29;
+    --text-light: 255 255 255;
+}
+
+html[data-color="purple"][data-themes="light"] {
+    --primary: 167 114 203;
+    --primary-light: 182 126 219;
+    --background: 249 249 249;
+    --text-menu: 255 255 255;
+    --card-background: 255 255 255;
+    --text-light: 29 29 29;
+}
+
+html[data-color="purple"][data-themes="dark"] {
+    --primary: 167 114 203;
+    --primary-light: 182 126 219;
+    --background: 18 18 18;
+    --text-menu: 255 255 255;
+    --card-background: 29 29 29;
+    --text-light: 255 255 255;
+}
+
 @layer base {
-    :root {
-        --color-primary: 248 249 250;
-        --color-hover: 82 141 239;
-        --color-text: 51 51 51;
-        --color-accent: 66 133 244;
-        --color-secondary: 240 244 248;
+    ::-webkit-scrollbar {
+        width: 5px;
     }
-}
 
-html[data-themes="light"] {
-    --color-primary: 248 249 250;
-    --color-text: 51 51 51;
-    --color-accent: 66 133 244;
-    --color-secondary: 240 244 248;
-}
+    ::-webkit-scrollbar-thumb {
+        background-color: rgba(var( --primary)); /* Change the color as needed */
+        border-radius: 6px;
+    }
 
-html[data-themes="light-dark"] {
-    --color-primary: 18 24 45;
-    --color-text: 226 240 251;
-    --color-accent: 2 40 84;
-    --color-secondary: 51 51 51;
-}
-
-html[data-themes="blue"] {
-    --color-primary: 226 240 251;
-    --color-text: 248 249 250;
-    --color-accent: 0 123 255;
-    --color-secondary: 204 234 255;
-}
-
-html[data-themes="blue-dark"] {
-    --color-primary: 52 73 94;
-    --color-text: 255 255 255;
-    --color-accent: 58 128 242;
-    --color-secondary: 83 97 118;
-}
-
-::-webkit-scrollbar {
-    width: 5px;
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: rgba(var(--color-secondary)); /* Change the color as needed */
-    border-radius: 6px;
-}
-
-::-webkit-scrollbar-track {
-    background-color:  rgb(var(--color-primary)); /* Change the color as needed */
+    ::-webkit-scrollbar-track {
+        background-color:  rgb(var( --primary-light)); /* Change the color as needed */
+    }
 }

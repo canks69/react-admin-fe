@@ -49,28 +49,6 @@ export const adminMenu = [
             element: <h1>Security</h1>,
             path: 'security'
           },
-          {
-            label: 'About',
-            element: <FullLayout />,
-            path: 'about',
-            items: [
-              {
-                label: 'Company',
-                element: <h1>Company</h1>,
-                path: 'company'
-              },
-              {
-                label: 'Team',
-                element: <h1>Team</h1>,
-                path: 'team'
-              },
-              {
-                label: 'Contact',
-                element: <h1>Contact</h1>,
-                path: 'contact'
-              }
-            ]
-          }
         ]
       },
     ]
